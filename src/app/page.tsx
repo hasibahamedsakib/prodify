@@ -12,7 +12,12 @@ import ErrorMessage from "@/components/ui/ErrorMessage";
 export default function Home() {
   const router = useRouter();
   const { isAuthenticated } = useAppSelector((state) => state.auth);
-  const { data: categories, isLoading, error, refetch } = useGetCategoriesQuery({ offset: 0, limit: 100 });
+  const {
+    data: categories,
+    isLoading,
+    error,
+    refetch,
+  } = useGetCategoriesQuery({ offset: 0, limit: 100 });
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -48,7 +53,7 @@ export default function Home() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 
+          <h1
             className="text-5xl md:text-6xl font-black mb-4"
             style={{
               background: "linear-gradient(to right, #276FBF, #785589)",
@@ -76,7 +81,10 @@ export default function Home() {
                 {/* Category Image */}
                 <div className="relative h-48 md:h-56 bg-gradient-to-br from-neutral-700 to-neutral-800 overflow-hidden">
                   <Image
-                    src={category.image || "https://via.placeholder.com/400x400/0D1821/276FBF?text=No+Image"}
+                    src={
+                      category.image ||
+                      "https://via.placeholder.com/400x400/0D1821/276FBF?text=No+Image"
+                    }
                     alt={category.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"

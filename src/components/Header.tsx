@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
@@ -15,6 +15,7 @@ const Header: React.FC = () => {
   const dispatch = useAppDispatch();
   const { email, isAuthenticated } = useAppSelector((state) => state.auth);
   const [searchQuery, setSearchQuery] = useState("");
+  const debounceTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sync search query with URL parameter
   useEffect(() => {
@@ -26,6 +27,42 @@ const Header: React.FC = () => {
     }
   }, [searchParams]);
 
+  // Debounced realtime search with 400ms delay
+  useEffect(() => {
+    // Clear existing timer
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
+    }
+
+    // Set new timer for debounced search
+    debounceTimerRef.current = setTimeout(() => {
+      const category = searchParams.get("category");
+      const params = new URLSearchParams();
+
+      if (searchQuery.trim()) {
+        params.set("search", searchQuery.trim());
+      }
+      if (category) {
+        params.set("category", category);
+      }
+
+      const queryString = params.toString();
+      const newUrl = queryString ? `/products?${queryString}` : "/products";
+
+      // Only navigate if we're on products page and URL would change
+      if (pathname === "/products" || pathname?.startsWith("/products")) {
+        router.push(newUrl);
+      }
+    }, 400);
+
+    // Cleanup timer on unmount or when dependencies change
+    return () => {
+      if (debounceTimerRef.current) {
+        clearTimeout(debounceTimerRef.current);
+      }
+    };
+  }, [searchQuery, searchParams, pathname, router]);
+
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem("token");
@@ -36,24 +73,23 @@ const Header: React.FC = () => {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      // Keep category parameter if it exists
-      const category = searchParams.get("category");
-      const params = new URLSearchParams();
-      params.set("search", searchQuery.trim());
-      if (category) {
-        params.set("category", category);
-      }
-      router.push(`/products?${params.toString()}`);
-    } else {
-      // If search is cleared, just keep category if it exists
-      const category = searchParams.get("category");
-      if (category) {
-        router.push(`/products?category=${category}`);
-      } else {
-        router.push("/products");
-      }
+    // Form submission now just triggers immediate search by clearing debounce
+    if (debounceTimerRef.current) {
+      clearTimeout(debounceTimerRef.current);
     }
+
+    const category = searchParams.get("category");
+    const params = new URLSearchParams();
+
+    if (searchQuery.trim()) {
+      params.set("search", searchQuery.trim());
+    }
+    if (category) {
+      params.set("category", category);
+    }
+
+    const queryString = params.toString();
+    router.push(queryString ? `/products?${queryString}` : "/products");
   };
 
   if (!isAuthenticated) return null;

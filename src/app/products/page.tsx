@@ -42,21 +42,28 @@ export default function ProductsPage() {
   useEffect(() => {
     const categoryFromUrl = searchParams.get("category");
     const searchFromUrl = searchParams.get("search");
+
     if (categoryFromUrl) {
       setSelectedCategory(categoryFromUrl);
+    } else {
+      setSelectedCategory("");
     }
+
     if (searchFromUrl) {
       setSearchQuery(searchFromUrl);
       setDebouncedSearch(searchFromUrl);
+    } else {
+      setSearchQuery("");
+      setDebouncedSearch("");
     }
   }, [searchParams]);
 
-  // Debounce search
+  // Debounce search with 400ms delay
   useEffect(() => {
     const timer = setTimeout(() => {
       setDebouncedSearch(searchQuery);
       setCurrentPage(1);
-    }, 300);
+    }, 400);
 
     return () => clearTimeout(timer);
   }, [searchQuery]);
@@ -433,9 +440,20 @@ export default function ProductsPage() {
                     "Searching..."
                   ) : (
                     <>
-                      Found <span className="font-bold">{displayProducts?.length || 0}</span> result{displayProducts?.length !== 1 ? "s" : ""} for &ldquo;{debouncedSearch}&rdquo;
+                      Found{" "}
+                      <span className="font-bold">
+                        {displayProducts?.length || 0}
+                      </span>{" "}
+                      result{displayProducts?.length !== 1 ? "s" : ""} for
+                      &ldquo;{debouncedSearch}&rdquo;
                       {selectedCategory && selectedCategoryData && (
-                        <> in <span className="font-bold">{selectedCategoryData.name}</span></>
+                        <>
+                          {" "}
+                          in{" "}
+                          <span className="font-bold">
+                            {selectedCategoryData.name}
+                          </span>
+                        </>
                       )}
                     </>
                   )}
@@ -446,7 +464,14 @@ export default function ProductsPage() {
             {/* Products Grid */}
             {isLoading || isSearching ? (
               <div className="flex items-center justify-center py-16">
-                <Loading size="lg" text={isSearching ? "Searching products..." : "Loading products..."} />
+                <Loading
+                  size="lg"
+                  text={
+                    isSearching
+                      ? "Searching products..."
+                      : "Loading products..."
+                  }
+                />
               </div>
             ) : !displayProducts || displayProducts.length === 0 ? (
               <div className="bg-neutral-900 rounded-lg shadow-md border border-neutral-800 p-16 text-center">
@@ -470,7 +495,9 @@ export default function ProductsPage() {
                 </h3>
                 <p className="text-neutral-400 mb-6">
                   {debouncedSearch
-                    ? `No products match "${debouncedSearch}"${selectedCategory ? " in this category" : ""}.`
+                    ? `No products match "${debouncedSearch}"${
+                        selectedCategory ? " in this category" : ""
+                      }.`
                     : selectedCategory
                     ? "No products in this category yet."
                     : "Start adding products to your inventory."}
