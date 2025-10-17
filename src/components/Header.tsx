@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from "next/navigation";
 import toast from "react-hot-toast";
@@ -8,7 +8,7 @@ import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import { logout } from "@/store/slices/authSlice";
 import Button from "./ui/Button";
 
-const Header: React.FC = () => {
+const HeaderContent: React.FC = () => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -213,6 +213,24 @@ const Header: React.FC = () => {
         </div>
       </div>
     </header>
+  );
+};
+
+const Header: React.FC = () => {
+  return (
+    <Suspense fallback={
+      <header className="sticky top-0 z-40 w-full bg-neutral-900/95 backdrop-blur-lg border-b border-neutral-800 shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="w-32 h-8 bg-neutral-800 animate-pulse rounded" />
+            <div className="w-64 h-8 bg-neutral-800 animate-pulse rounded" />
+            <div className="w-32 h-8 bg-neutral-800 animate-pulse rounded" />
+          </div>
+        </div>
+      </header>
+    }>
+      <HeaderContent />
+    </Suspense>
   );
 };
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,7 +18,7 @@ import ErrorMessage from "@/components/ui/ErrorMessage";
 import Modal from "@/components/ui/Modal";
 import type { Product } from "@/types";
 
-export default function ProductsPage() {
+function ProductsPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -677,5 +677,19 @@ export default function ProductsPage() {
         </div>
       </Modal>
     </div>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rich-black to-neutral-900">
+          <Loading size="lg" text="Loading products..." />
+        </div>
+      }
+    >
+      <ProductsPageContent />
+    </Suspense>
   );
 }
