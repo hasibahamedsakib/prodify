@@ -433,7 +433,7 @@ export default function ProductsPage() {
                     "Searching..."
                   ) : (
                     <>
-                      Found <span className="font-bold">{displayProducts?.length || 0}</span> result{displayProducts?.length !== 1 ? "s" : ""} for "{debouncedSearch}"
+                      Found <span className="font-bold">{displayProducts?.length || 0}</span> result{displayProducts?.length !== 1 ? "s" : ""} for &ldquo;{debouncedSearch}&rdquo;
                       {selectedCategory && selectedCategoryData && (
                         <> in <span className="font-bold">{selectedCategoryData.name}</span></>
                       )}
