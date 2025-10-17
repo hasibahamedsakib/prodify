@@ -49,8 +49,8 @@ const HeaderContent: React.FC = () => {
       const queryString = params.toString();
       const newUrl = queryString ? `/products?${queryString}` : "/products";
 
-      // Only navigate if we're on products page and URL would change
-      if (pathname === "/products" || pathname?.startsWith("/products")) {
+      // Only navigate if we're on the main products page (not detail/create/edit pages)
+      if (pathname === "/products") {
         router.push(newUrl);
       }
     }, 400);
@@ -94,8 +94,7 @@ const HeaderContent: React.FC = () => {
 
   if (!isAuthenticated) return null;
 
-  const showSearch =
-    pathname === "/products" || pathname?.startsWith("/products");
+  const showSearch = pathname === "/products";
 
   return (
     <header className="sticky top-0 z-40 w-full bg-neutral-900/95 backdrop-blur-lg border-b border-neutral-800 shadow-sm">
