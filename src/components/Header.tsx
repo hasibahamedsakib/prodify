@@ -218,17 +218,19 @@ const HeaderContent: React.FC = () => {
 
 const Header: React.FC = () => {
   return (
-    <Suspense fallback={
-      <header className="sticky top-0 z-40 w-full bg-neutral-900/95 backdrop-blur-lg border-b border-neutral-800 shadow-sm">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="w-32 h-8 bg-neutral-800 animate-pulse rounded" />
-            <div className="w-64 h-8 bg-neutral-800 animate-pulse rounded" />
-            <div className="w-32 h-8 bg-neutral-800 animate-pulse rounded" />
+    <Suspense
+      fallback={
+        <header className="sticky top-0 z-40 w-full bg-neutral-900/95 backdrop-blur-lg border-b border-neutral-800 shadow-sm">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex items-center justify-between h-16">
+              <div className="w-32 h-8 bg-neutral-800 animate-pulse rounded" />
+              <div className="w-64 h-8 bg-neutral-800 animate-pulse rounded" />
+              <div className="w-32 h-8 bg-neutral-800 animate-pulse rounded" />
+            </div>
           </div>
-        </div>
-      </header>
-    }>
+        </header>
+      }
+    >
       <HeaderContent />
     </Suspense>
   );
