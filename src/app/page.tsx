@@ -49,12 +49,12 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rich-black to-neutral-900 pb-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-rich-black to-neutral-900 pb-8 sm:pb-12">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         {/* Hero Section */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-10 sm:mb-16">
           <h1
-            className="text-5xl md:text-6xl font-black mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-4"
             style={{
               background: "linear-gradient(to right, #276FBF, #785589)",
               WebkitBackgroundClip: "text",
@@ -64,22 +64,22 @@ export default function Home() {
           >
             SHOP BY CATEGORY
           </h1>
-          <p className="text-neutral-400 text-lg md:text-xl">
+          <p className="text-neutral-400 text-base sm:text-lg md:text-xl px-4">
             Browse our collection and find exactly what you need
           </p>
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-3 sm:gap-4 md:gap-6">
           {categories?.map((category) => (
             <Link
               key={category.id}
               href={`/products?category=${category.id}`}
-              className="group"
+              className="group cursor-pointer"
             >
-              <div className="bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-2xl overflow-hidden border-2 border-neutral-700 hover:border-celtic-blue transition-all duration-300 hover:shadow-2xl hover:shadow-celtic-blue/20 hover:scale-105">
+              <div className="bg-gradient-to-br from-neutral-800 to-neutral-900 rounded-lg sm:rounded-xl md:rounded-2xl overflow-hidden border-2 border-neutral-700 hover:border-celtic-blue transition-all duration-300 hover:shadow-2xl hover:shadow-celtic-blue/20 hover:scale-105">
                 {/* Category Image */}
-                <div className="relative h-48 md:h-56 bg-gradient-to-br from-neutral-700 to-neutral-800 overflow-hidden">
+                <div className="relative h-32 sm:h-40 md:h-48 lg:h-56 bg-gradient-to-br from-neutral-700 to-neutral-800 overflow-hidden">
                   <Image
                     src={
                       category.image ||
@@ -95,16 +95,16 @@ export default function Home() {
                 </div>
 
                 {/* Category Name */}
-                <div className="p-4 text-center">
-                  <h3 className="text-lg md:text-xl font-bold text-white group-hover:text-celtic-blue transition-colors">
+                <div className="p-3 sm:p-4 text-center">
+                  <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white group-hover:text-celtic-blue transition-colors line-clamp-1">
                     {category.name}
                   </h3>
                   {category.description && (
-                    <p className="text-sm text-neutral-400 mt-1 line-clamp-2">
+                    <p className="text-xs sm:text-sm text-neutral-400 mt-1 line-clamp-2">
                       {category.description}
                     </p>
                   )}
-                  <div className="mt-3 text-accent font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="mt-2 sm:mt-3 text-accent font-semibold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity">
                     Shop Now →
                   </div>
                 </div>

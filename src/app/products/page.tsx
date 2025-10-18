@@ -165,10 +165,10 @@ function ProductsPageContent() {
         key="prev"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+        className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
       >
         <svg
-          className="w-5 h-5"
+          className="w-4 h-4 sm:w-5 sm:h-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -189,7 +189,7 @@ function ProductsPageContent() {
         <button
           key={1}
           onClick={() => handlePageChange(1)}
-          className="px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all"
+          className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all cursor-pointer"
         >
           1
         </button>
@@ -209,7 +209,7 @@ function ProductsPageContent() {
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`px-4 py-2 rounded-lg border transition-all ${
+          className={`px-3 sm:px-4 py-2 rounded-lg border transition-all cursor-pointer ${
             currentPage === i
               ? "bg-celtic-blue border-celtic-blue text-white font-bold shadow-lg shadow-celtic-blue/30"
               : "border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue"
@@ -233,7 +233,7 @@ function ProductsPageContent() {
         <button
           key={totalPages}
           onClick={() => handlePageChange(totalPages)}
-          className="px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all"
+          className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all cursor-pointer"
         >
           {totalPages}
         </button>
@@ -246,10 +246,10 @@ function ProductsPageContent() {
         key="next"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+        className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
       >
         <svg
-          className="w-5 h-5"
+          className="w-4 h-4 sm:w-5 sm:h-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -302,7 +302,7 @@ function ProductsPageContent() {
               {selectedCategory && (
                 <button
                   onClick={() => handleCategoryChange("")}
-                  className="text-imperial-red text-sm font-semibold hover:text-imperial-red/80 transition-colors"
+                  className="text-imperial-red text-xs sm:text-sm font-semibold hover:text-imperial-red/80 transition-colors cursor-pointer"
                 >
                   CLEAR ALL
                 </button>
@@ -383,23 +383,27 @@ function ProductsPageContent() {
 
         {/* Main Content */}
         <main className="flex-1 min-h-screen">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
             {/* Header with Create Button */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
                   {selectedCategoryData
                     ? selectedCategoryData.name
                     : "All Products"}
                 </h1>
-                <p className="text-neutral-400">
+                <p className="text-sm sm:text-base text-neutral-400">
                   {products?.length || 0} products available
                 </p>
               </div>
               <Link href="/products/create">
-                <Button variant="primary" size="lg">
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="cursor-pointer w-full sm:w-auto"
+                >
                   <svg
-                    className="w-5 h-5 mr-2"
+                    className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -417,11 +421,11 @@ function ProductsPageContent() {
             </div>
 
             {/* Mobile Category Filter */}
-            <div className="lg:hidden mb-6">
+            <div className="lg:hidden mb-4 sm:mb-6">
               <select
                 value={selectedCategory}
                 onChange={(e) => handleCategoryChange(e.target.value)}
-                className="w-full px-4 py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-celtic-blue"
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-sm sm:text-base text-white focus:outline-none focus:ring-2 focus:ring-celtic-blue cursor-pointer"
               >
                 <option value="">All Categories</option>
                 {categories?.map((category) => (
@@ -434,8 +438,8 @@ function ProductsPageContent() {
 
             {/* Search Results Info */}
             {debouncedSearch && (
-              <div className="mb-4 px-4 py-3 bg-celtic-blue/10 border border-celtic-blue/30 rounded-lg">
-                <p className="text-celtic-blue text-sm">
+              <div className="mb-3 sm:mb-4 px-3 sm:px-4 py-2 sm:py-3 bg-celtic-blue/10 border border-celtic-blue/30 rounded-lg">
+                <p className="text-celtic-blue text-xs sm:text-sm">
                   {isSearching ? (
                     "Searching..."
                   ) : (
@@ -504,14 +508,18 @@ function ProductsPageContent() {
                 </p>
                 {!selectedCategory && !debouncedSearch && (
                   <Link href="/products/create">
-                    <Button variant="primary" size="lg">
+                    <Button
+                      variant="primary"
+                      size="md"
+                      className="cursor-pointer"
+                    >
                       Create Your First Product
                     </Button>
                   </Link>
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
                 {displayProducts.map((product) => {
                   // Get first valid image
                   const getProductImage = () => {
@@ -549,11 +557,11 @@ function ProductsPageContent() {
                   return (
                     <div
                       key={product.id}
-                      className="bg-neutral-900 rounded-xl border border-neutral-800 overflow-hidden hover:shadow-2xl hover:border-celtic-blue transition-all duration-300 group"
+                      className="bg-neutral-900 rounded-lg sm:rounded-xl border border-neutral-800 overflow-hidden hover:shadow-2xl hover:border-celtic-blue transition-all duration-300 group"
                     >
                       {/* Product Image */}
                       <Link href={`/products/${product.slug}`}>
-                        <div className="relative h-80 bg-gradient-to-br from-neutral-800 to-neutral-900 overflow-hidden cursor-pointer">
+                        <div className="relative h-64 sm:h-80 bg-gradient-to-br from-neutral-800 to-neutral-900 overflow-hidden cursor-pointer">
                           <Image
                             src={imageUrl}
                             alt={product.name}
@@ -603,7 +611,7 @@ function ProductsPageContent() {
                             href={`/products/edit/${product.id}`}
                             className="w-full"
                           >
-                            <button className="w-full px-3 py-2 text-xs font-semibold text-celtic-blue border border-celtic-blue rounded hover:bg-celtic-blue hover:text-white transition-colors">
+                            <button className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-celtic-blue border border-celtic-blue rounded hover:bg-celtic-blue hover:text-white transition-colors cursor-pointer">
                               Edit
                             </button>
                           </Link>
@@ -611,7 +619,7 @@ function ProductsPageContent() {
                             onClick={() =>
                               setDeleteModal({ isOpen: true, product })
                             }
-                            className="w-full px-3 py-2 text-xs font-semibold text-imperial-red border border-imperial-red rounded hover:bg-imperial-red hover:text-white transition-colors"
+                            className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-imperial-red border border-imperial-red rounded hover:bg-imperial-red hover:text-white transition-colors cursor-pointer"
                           >
                             Delete
                           </button>
@@ -655,12 +663,13 @@ function ProductsPageContent() {
               ?
             </p>
           </div>
-          <div className="flex gap-3 justify-end">
+          <div className="flex gap-2 sm:gap-3 justify-end">
             <Button
               variant="outline"
               onClick={() => setDeleteModal({ isOpen: false, product: null })}
               disabled={isDeleting}
-              size="lg"
+              size="md"
+              className="cursor-pointer"
             >
               Cancel
             </Button>
@@ -668,8 +677,8 @@ function ProductsPageContent() {
               variant="danger"
               onClick={handleDelete}
               isLoading={isDeleting}
-              size="lg"
-              className="font-bold"
+              size="md"
+              className="font-bold cursor-pointer"
             >
               Delete Product
             </Button>

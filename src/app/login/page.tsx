@@ -69,14 +69,14 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rich-black via-neutral-900 to-neutral-800 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-rich-black via-neutral-900 to-neutral-800 px-4 py-8">
       <div className="w-full max-w-md">
-        <div className="bg-neutral-800 rounded-2xl shadow-2xl border border-neutral-700 p-8 space-y-6">
+        <div className="bg-neutral-800 rounded-xl sm:rounded-2xl shadow-2xl border border-neutral-700 p-6 sm:p-8 space-y-6">
           {/* Logo and Header */}
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-celtic-blue to-pomp-and-power rounded-2xl shadow-lg mb-4">
+            <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-celtic-blue to-pomp-and-power rounded-xl sm:rounded-2xl shadow-lg mb-4">
               <svg
-                className="w-8 h-8 text-white"
+                className="w-7 h-7 sm:w-8 sm:h-8 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -90,7 +90,7 @@ export default function LoginPage() {
               </svg>
             </div>
             <h1
-              className="text-3xl font-bold mb-2"
+              className="text-2xl sm:text-3xl font-bold mb-2"
               style={{
                 background: "linear-gradient(to right, #276FBF, #785589)",
                 WebkitBackgroundClip: "text",
@@ -100,7 +100,7 @@ export default function LoginPage() {
             >
               Welcome to Prodify
             </h1>
-            <p className="text-neutral-400">Sign in to manage your products</p>
+            <p className="text-sm sm:text-base text-neutral-400">Sign in to manage your products</p>
           </div>
 
           {/* Form */}
@@ -119,7 +119,7 @@ export default function LoginPage() {
               type="submit"
               variant="primary"
               size="lg"
-              className="w-full"
+              className="w-full cursor-pointer"
               isLoading={isLoading}
             >
               Sign In
@@ -135,11 +135,11 @@ export default function LoginPage() {
         </div>
 
         {/* Footer */}
-        <p className="mt-8 text-center text-sm text-neutral-600 dark:text-neutral-400">
+        <p className="mt-6 sm:mt-8 text-center text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
           Need help? Contact us at{" "}
           <a
             href="mailto:connect@bitechx.com"
-            className="text-celtic-blue hover:text-pomp-and-power font-medium transition-colors"
+            className="text-celtic-blue hover:text-pomp-and-power font-medium transition-colors cursor-pointer"
           >
             connect@bitechx.com
           </a>

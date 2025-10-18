@@ -116,31 +116,31 @@ export default function ProductDetailPage({
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-rich-black to-neutral-900">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         {/* Breadcrumb */}
-        <nav className="mb-6">
-          <ol className="flex items-center space-x-2 text-sm">
+        <nav className="mb-4 sm:mb-6">
+          <ol className="flex items-center space-x-2 text-xs sm:text-sm">
             <li>
               <Link
                 href="/products"
-                className="text-neutral-400  hover:text-celtic-blue dark:hover:text-accent transition-colors"
+                className="text-neutral-400 hover:text-celtic-blue dark:hover:text-accent transition-colors cursor-pointer"
               >
                 Products
               </Link>
             </li>
             <li className="text-neutral-400">/</li>
-            <li className="text-neutral-400 font-semibold truncate max-w-xs">
+            <li className="text-neutral-400 font-semibold truncate max-w-[150px] sm:max-w-xs">
               {product.name}
             </li>
           </ol>
         </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-6 lg:gap-8">
           {/* Image Gallery Section */}
           <div className="lg:col-span-3">
-            <div className="bg-neutral-900 rounded-2xl border-2 border-neutral-800 overflow-hidden shadow-xl">
+            <div className="bg-neutral-900 rounded-xl sm:rounded-2xl border-2 border-neutral-800 overflow-hidden shadow-xl">
               {/* Main Image */}
-              <div className="relative h-96 md:h-[500px] bg-gradient-to-br from-neutral-800 to-neutral-900 p-8">
+              <div className="relative h-64 sm:h-80 md:h-96 lg:h-[500px] bg-gradient-to-br from-neutral-800 to-neutral-900 p-4 sm:p-8">
                 <Image
                   src={selectedImage}
                   alt={product.name}
@@ -154,13 +154,13 @@ export default function ProductDetailPage({
 
               {/* Thumbnail Images */}
               {validImages.length > 1 && (
-                <div className="p-4 bg-neutral-900 border-t-2 border-neutral-800">
-                  <div className="flex gap-3 overflow-x-auto pb-2">
+                <div className="p-3 sm:p-4 bg-neutral-900 border-t-2 border-neutral-800">
+                  <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2">
                     {validImages.map((img, index) => (
                       <button
                         key={index}
                         onClick={() => setSelectedImageIndex(index)}
-                        className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-3 transition-all duration-300 ${
+                        className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-3 transition-all duration-300 cursor-pointer ${
                           selectedImageIndex === index
                             ? "border-celtic-blue ring-4 ring-celtic-blue/30 scale-105"
                             : "border-neutral-300 dark:border-neutral-700 hover:border-celtic-blue/50"
@@ -183,39 +183,39 @@ export default function ProductDetailPage({
           </div>
 
           {/* Product Info Section */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
             {/* Product Title & Category */}
-            <div className="bg-neutral-900 rounded-2xl border-2 border-neutral-800 p-6 shadow-xl">
+            <div className="bg-neutral-900 rounded-xl sm:rounded-2xl border-2 border-neutral-800 p-4 sm:p-6 shadow-xl">
               <div className="inline-block mb-3">
-                <span className="px-4 py-1.5 bg-gradient-to-r from-celtic-blue to-pomp-and-power text-white text-sm font-bold rounded-full shadow-lg">
+                <span className="px-3 sm:px-4 py-1 sm:py-1.5 bg-gradient-to-r from-celtic-blue to-pomp-and-power text-white text-xs sm:text-sm font-bold rounded-full shadow-lg">
                   {product.category.name}
                 </span>
               </div>
 
-              <h1 className="text-xl md:text-2xl xl:text-3xl font-black text-neutral-900 dark:text-white mb-4 leading-tight">
+              <h1 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-black text-neutral-900 dark:text-white mb-4 leading-tight break-words">
                 {product.name}
               </h1>
 
               {/* Price */}
-              <div className="bg-gradient-to-r from-imperial-red/10 via-imperial-red/5 to-transparent dark:from-imperial-red/20 dark:via-imperial-red/10 rounded-xl p-6 mb-6 border-l-4 border-imperial-red">
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-1 font-semibold">
+              <div className="bg-gradient-to-r from-imperial-red/10 via-imperial-red/5 to-transparent dark:from-imperial-red/20 dark:via-imperial-red/10 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border-l-4 border-imperial-red">
+                <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-1 font-semibold">
                   Price
                 </p>
-                <p className="text-3xl font-black text-imperial-red">
+                <p className="text-2xl sm:text-3xl font-black text-imperial-red">
                   ৳ {product.price.toLocaleString()}
                 </p>
               </div>
 
               {/* Action Buttons */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2 sm:gap-3">
                 <Link href={`/products/edit/${product.id}`} className="w-full">
                   <Button
                     variant="primary"
-                    size="lg"
-                    // className="w-full font-bold shadow-lg shadow-celtic-blue/30"
+                    size="md"
+                    className="w-full cursor-pointer"
                   >
                     <svg
-                      className="w-5 h-5 mr-2"
+                      className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -227,17 +227,18 @@ export default function ProductDetailPage({
                         d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
                       />
                     </svg>
-                    Edit Product
+                    <span className="hidden sm:inline">Edit Product</span>
+                    <span className="sm:hidden">Edit</span>
                   </Button>
                 </Link>
                 <Button
                   variant="danger"
-                  size="lg"
+                  size="md"
                   onClick={() => setDeleteModal(true)}
-                  //   className="w-full font-bold shadow-lg shadow-imperial-red/30"
+                  className="w-full cursor-pointer"
                 >
                   <svg
-                    className="w-5 h-5 mr-2"
+                    className="w-4 h-4 sm:w-5 sm:h-5 mr-1 sm:mr-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -255,10 +256,10 @@ export default function ProductDetailPage({
             </div>
 
             {/* Product Description */}
-            <div className="bg-neutral-900 rounded-2xl border-2 border-neutral-800 p-6 shadow-xl">
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center">
+            <div className="bg-neutral-900 rounded-xl sm:rounded-2xl border-2 border-neutral-800 p-4 sm:p-6 shadow-xl">
+              <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
                 <svg
-                  className="w-6 h-6 mr-2 text-celtic-blue"
+                  className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-celtic-blue"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -272,16 +273,16 @@ export default function ProductDetailPage({
                 </svg>
                 Description
               </h2>
-              <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line">
+              <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line break-words">
                 {product.description}
               </p>
             </div>
 
             {/* Product Details */}
-            <div className="bg-neutral-900 rounded-2xl border-2 border-neutral-800 p-6 shadow-xl">
-              <h2 className="text-xl font-bold text-white mb-4 flex items-center">
+            <div className="bg-neutral-900 rounded-xl sm:rounded-2xl border-2 border-neutral-800 p-4 sm:p-6 shadow-xl">
+              <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
                 <svg
-                  className="w-6 h-6 mr-2 text-celtic-blue"
+                  className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-celtic-blue"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -295,20 +296,20 @@ export default function ProductDetailPage({
                 </svg>
                 Details
               </h2>
-              <dl className="space-y-3">
-                <div className="flex justify-between py-3 border-b border-neutral-200 dark:border-neutral-800">
-                  <dt className="text-sm font-semibold text-neutral-600 dark:text-neutral-400">
+              <dl className="space-y-2 sm:space-y-3">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 border-b border-neutral-200 dark:border-neutral-800 gap-1">
+                  <dt className="text-xs sm:text-sm font-semibold text-neutral-600 dark:text-neutral-400">
                     Category Name
                   </dt>
-                  <dd className="text-sm font-mono text-neutral-900 dark:text-white">
+                  <dd className="text-xs sm:text-sm font-mono text-neutral-900 dark:text-white break-words">
                     {product?.category?.name}
                   </dd>
                 </div>
-                <div className="flex justify-between py-3 border-b border-neutral-200 dark:border-neutral-800">
-                  <dt className="text-sm font-semibold text-neutral-600 dark:text-neutral-400">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 border-b border-neutral-200 dark:border-neutral-800 gap-1">
+                  <dt className="text-xs sm:text-sm font-semibold text-neutral-600 dark:text-neutral-400">
                     Created At
                   </dt>
-                  <dd className="text-sm text-neutral-900 dark:text-white">
+                  <dd className="text-xs sm:text-sm text-neutral-900 dark:text-white">
                     {new Date(product.createdAt).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -316,11 +317,11 @@ export default function ProductDetailPage({
                     })}
                   </dd>
                 </div>
-                <div className="flex justify-between py-3">
-                  <dt className="text-sm font-semibold text-neutral-600 dark:text-neutral-400">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 gap-1">
+                  <dt className="text-xs sm:text-sm font-semibold text-neutral-600 dark:text-neutral-400">
                     Last Updated
                   </dt>
-                  <dd className="text-sm text-neutral-900 dark:text-white">
+                  <dd className="text-xs sm:text-sm text-neutral-900 dark:text-white">
                     {new Date(product.updatedAt).toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "long",
@@ -341,12 +342,12 @@ export default function ProductDetailPage({
         title="Delete Product"
         size="sm"
       >
-        <div className="space-y-6">
-          <div className="bg-imperial-red/10 border-l-4 border-imperial-red rounded-lg p-4">
-            <p className="text-neutral-900 dark:text-white font-semibold mb-2">
-              âš ï¸ Warning: This action cannot be undone!
+        <div className="space-y-4 sm:space-y-6">
+          <div className="bg-imperial-red/10 border-l-4 border-imperial-red rounded-lg p-3 sm:p-4">
+            <p className="text-sm sm:text-base text-neutral-900 dark:text-white font-semibold mb-2">
+              ⚠️ Warning: This action cannot be undone!
             </p>
-            <p className="text-neutral-600 dark:text-neutral-400 text-sm">
+            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
               Are you sure you want to delete{" "}
               <span className="font-bold text-neutral-900 dark:text-white">
                 {product.name}
@@ -354,12 +355,13 @@ export default function ProductDetailPage({
               ?
             </p>
           </div>
-          <div className="flex gap-3 justify-end">
+          <div className="flex gap-2 sm:gap-3 justify-end">
             <Button
               variant="outline"
               onClick={() => setDeleteModal(false)}
               disabled={isDeleting}
-              size="lg"
+              size="md"
+              className="cursor-pointer"
             >
               Cancel
             </Button>
@@ -367,8 +369,8 @@ export default function ProductDetailPage({
               variant="danger"
               onClick={handleDelete}
               isLoading={isDeleting}
-              size="lg"
-              className="font-bold"
+              size="md"
+              className="font-bold cursor-pointer"
             >
               Delete Product
             </Button>

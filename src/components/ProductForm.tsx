@@ -194,16 +194,16 @@ export default function ProductForm({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rich-black via-neutral-900 to-neutral-800 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-rich-black via-neutral-900 to-neutral-800 py-4 sm:py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
         {/* Header */}
-        <div className="mb-8">
+        <div className="mb-6 sm:mb-8">
           <button
             onClick={() => router.back()}
-            className="flex items-center text-neutral-400 hover:text-celtic-blue hover:text-accent mb-4 transition-colors"
+            className="flex items-center text-neutral-400 hover:text-celtic-blue hover:text-accent mb-3 sm:mb-4 transition-colors cursor-pointer"
           >
             <svg
-              className="w-5 h-5 mr-2"
+              className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -217,10 +217,10 @@ export default function ProductForm({
             </svg>
             Back
           </button>
-          <h1 className="text-4xl font-bold text-white mb-2">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
             {isEdit ? "Edit Product" : "Create New Product"}
           </h1>
-          <p className="text-neutral-400">
+          <p className="text-sm sm:text-base text-neutral-400">
             {isEdit
               ? "Update your product information"
               : "Add a new product to your catalog"}
@@ -228,7 +228,7 @@ export default function ProductForm({
         </div>
 
         {/* Form */}
-        <Card className="p-6 md:p-8 bg-neutral-900 border border-neutral-800 shadow-xl">
+        <Card className="p-4 sm:p-6 md:p-8 bg-neutral-900 border border-neutral-800 shadow-xl">
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Product Name */}
             <Input
@@ -295,11 +295,11 @@ export default function ProductForm({
 
               {/* Existing Images */}
               {formData.images.filter((img) => img).length > 0 && (
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                   {formData.images
                     .filter((img) => img)
                     .map((image, index) => (
-                      <div key={index} className="relative group h-32">
+                      <div key={index} className="relative group h-28 sm:h-32">
                         <Image
                           src={image}
                           alt={`Product ${index + 1}`}
@@ -310,10 +310,10 @@ export default function ProductForm({
                         <button
                           type="button"
                           onClick={() => handleRemoveImage(index)}
-                          className="absolute top-2 right-2 p-1 bg-imperial-red text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+                          className="absolute top-1 sm:top-2 right-1 sm:right-2 p-1 bg-imperial-red text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer"
                         >
                           <svg
-                            className="w-4 h-4"
+                            className="w-3 h-3 sm:w-4 sm:h-4"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -332,7 +332,7 @@ export default function ProductForm({
               )}
 
               {/* Add Image URL */}
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <Input
                   type="url"
                   placeholder="Enter image URL"
@@ -344,7 +344,7 @@ export default function ProductForm({
                   type="button"
                   variant="outline"
                   onClick={handleAddImage}
-                  className="sm:w-[150px]"
+                  className="sm:w-[150px] cursor-pointer"
                 >
                   Add Image
                 </Button>
@@ -367,19 +367,19 @@ export default function ProductForm({
             )}
 
             {/* Action Buttons */}
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
               <Button
                 type="button"
                 variant="outline"
                 onClick={() => router.back()}
-                className="flex-1"
+                className="flex-1 cursor-pointer"
               >
                 Cancel
               </Button>
               <Button
                 type="submit"
                 variant="primary"
-                className="flex-1"
+                className="flex-1 cursor-pointer"
                 isLoading={isSaving}
               >
                 {isEdit ? "Update Product" : "Create Product"}
