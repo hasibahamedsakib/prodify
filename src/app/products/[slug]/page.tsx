@@ -201,7 +201,7 @@ export default function ProductDetailPage({
                 <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-1 font-semibold">
                   Price
                 </p>
-                <p className="text-2xl sm:text-3xl font-black text-imperial-red">
+                <p className="text-lg sm:text-xl md:text-2xl 2xl:text-3xl font-black text-imperial-red">
                   ৳ {product.price.toLocaleString()}
                 </p>
               </div>
@@ -257,7 +257,7 @@ export default function ProductDetailPage({
 
             {/* Product Description */}
             <div className="bg-neutral-900 rounded-xl sm:rounded-2xl border-2 border-neutral-800 p-4 sm:p-6 shadow-xl">
-              <h2 className="text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
+              <h2 className="test-base sm:text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
                 <svg
                   className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-celtic-blue"
                   fill="none"
@@ -273,7 +273,7 @@ export default function ProductDetailPage({
                 </svg>
                 Description
               </h2>
-              <p className="text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line break-words">
+              <p className="text-xs sm:text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line break-words">
                 {product.description}
               </p>
             </div>

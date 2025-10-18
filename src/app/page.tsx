@@ -81,10 +81,7 @@ export default function Home() {
                 {/* Category Image */}
                 <div className="relative h-32 sm:h-40 md:h-48 lg:h-56 bg-gradient-to-br from-neutral-700 to-neutral-800 overflow-hidden">
                   <Image
-                    src={
-                      category.image ||
-                      "https://via.placeholder.com/400x400/0D1821/276FBF?text=No+Image"
-                    }
+                    src={category.image || "/images/nope-not-here.avif"}
                     alt={category.name}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-500"

@@ -165,10 +165,10 @@ function ProductsPageContent() {
         key="prev"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
+        className="px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
       >
         <svg
-          className="w-4 h-4 sm:w-5 sm:h-5"
+          className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -189,14 +189,17 @@ function ProductsPageContent() {
         <button
           key={1}
           onClick={() => handlePageChange(1)}
-          className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all cursor-pointer"
+          className="hidden sm:block px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all cursor-pointer text-xs sm:text-sm"
         >
           1
         </button>
       );
       if (startPage > 2) {
         pages.push(
-          <span key="dots1" className="px-2 text-neutral-500">
+          <span
+            key="dots1"
+            className="hidden sm:inline px-1 sm:px-2 text-neutral-500 text-xs sm:text-sm"
+          >
             ...
           </span>
         );
@@ -209,7 +212,7 @@ function ProductsPageContent() {
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`px-3 sm:px-4 py-2 rounded-lg border transition-all cursor-pointer ${
+          className={`px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg border transition-all cursor-pointer text-xs sm:text-sm ${
             currentPage === i
               ? "bg-celtic-blue border-celtic-blue text-white font-bold shadow-lg shadow-celtic-blue/30"
               : "border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue"
@@ -224,7 +227,10 @@ function ProductsPageContent() {
     if (endPage < totalPages) {
       if (endPage < totalPages - 1) {
         pages.push(
-          <span key="dots2" className="px-2 text-neutral-500">
+          <span
+            key="dots2"
+            className="hidden sm:inline px-1 sm:px-2 text-neutral-500 text-xs sm:text-sm"
+          >
             ...
           </span>
         );
@@ -233,7 +239,7 @@ function ProductsPageContent() {
         <button
           key={totalPages}
           onClick={() => handlePageChange(totalPages)}
-          className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all cursor-pointer"
+          className="hidden sm:block px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-celtic-blue hover:border-celtic-blue transition-all cursor-pointer text-xs sm:text-sm"
         >
           {totalPages}
         </button>
@@ -246,10 +252,10 @@ function ProductsPageContent() {
         key="next"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-3 sm:px-4 py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
+        className="px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg border border-neutral-700 bg-neutral-800 text-white hover:bg-neutral-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all cursor-pointer"
       >
         <svg
-          className="w-4 h-4 sm:w-5 sm:h-5"
+          className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -383,27 +389,27 @@ function ProductsPageContent() {
 
         {/* Main Content */}
         <main className="flex-1 min-h-screen">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
+          <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 py-3 sm:py-4 lg:py-6">
             {/* Header with Create Button */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4 lg:mb-6">
               <div>
-                <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-1 sm:mb-2">
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white mb-1">
                   {selectedCategoryData
                     ? selectedCategoryData.name
                     : "All Products"}
                 </h1>
-                <p className="text-sm sm:text-base text-neutral-400">
+                <p className="text-xs sm:text-sm lg:text-base text-neutral-400">
                   {products?.length || 0} products available
                 </p>
               </div>
-              <Link href="/products/create">
+              <Link href="/products/create" className="w-full sm:w-auto">
                 <Button
                   variant="primary"
                   size="md"
-                  className="cursor-pointer w-full sm:w-auto"
+                  className="cursor-pointer w-full sm:w-auto text-xs sm:text-sm"
                 >
                   <svg
-                    className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
+                    className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 mr-1 sm:mr-2"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -415,17 +421,18 @@ function ProductsPageContent() {
                       d="M12 4v16m8-8H4"
                     />
                   </svg>
-                  Add New Product
+                  <span className="hidden xs:inline">Add New Product</span>
+                  <span className="xs:hidden">Add Product</span>
                 </Button>
               </Link>
             </div>
 
             {/* Mobile Category Filter */}
-            <div className="lg:hidden mb-4 sm:mb-6">
+            <div className="lg:hidden mb-3 sm:mb-4 lg:mb-6">
               <select
                 value={selectedCategory}
                 onChange={(e) => handleCategoryChange(e.target.value)}
-                className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-neutral-900 border border-neutral-800 rounded-lg text-sm sm:text-base text-white focus:outline-none focus:ring-2 focus:ring-celtic-blue cursor-pointer"
+                className="w-full px-3 sm:px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-lg text-xs sm:text-sm lg:text-base text-white focus:outline-none focus:ring-2 focus:ring-celtic-blue cursor-pointer"
               >
                 <option value="">All Categories</option>
                 {categories?.map((category) => (
@@ -438,7 +445,7 @@ function ProductsPageContent() {
 
             {/* Search Results Info */}
             {debouncedSearch && (
-              <div className="mb-3 sm:mb-4 px-3 sm:px-4 py-2 sm:py-3 bg-celtic-blue/10 border border-celtic-blue/30 rounded-lg">
+              <div className="mb-3 sm:mb-4 px-2 sm:px-3 lg:px-4 py-2 bg-celtic-blue/10 border border-celtic-blue/30 rounded-lg">
                 <p className="text-celtic-blue text-xs sm:text-sm">
                   {isSearching ? (
                     "Searching..."
@@ -519,7 +526,7 @@ function ProductsPageContent() {
                 )}
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4">
+              <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
                 {displayProducts.map((product) => {
                   // Get first valid image
                   const getProductImage = () => {
@@ -545,11 +552,11 @@ function ProductsPageContent() {
                         new URL(product.image);
                         return product.image;
                       } catch {
-                        return "https://via.placeholder.com/400x400/0D1821/276FBF?text=No+Image";
+                        return "/images/nope-not-here.avif";
                       }
                     }
 
-                    return "https://via.placeholder.com/400x400/0D1821/276FBF?text=No+Image";
+                    return "/images/nope-not-here.avif";
                   };
 
                   const imageUrl = getProductImage();
@@ -561,18 +568,18 @@ function ProductsPageContent() {
                     >
                       {/* Product Image */}
                       <Link href={`/products/${product.slug}`}>
-                        <div className="relative h-64 sm:h-80 bg-gradient-to-br from-neutral-800 to-neutral-900 overflow-hidden cursor-pointer">
+                        <div className="relative h-40 sm:h-48 md:h-56 lg:h-64 xl:h-72 bg-gradient-to-br from-neutral-800 to-neutral-900 overflow-hidden cursor-pointer">
                           <Image
                             src={imageUrl}
                             alt={product.name}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
-                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                             unoptimized
                           />
-                          {/* NEW Badge */}
-                          <div className="absolute top-3 left-3">
-                            <span className="px-3 py-1 bg-imperial-red text-white text-xs font-bold rounded shadow-lg">
+                          {/* Category Badge */}
+                          <div className="absolute top-2 left-2">
+                            <span className="px-2 py-0.5 sm:px-3 sm:py-1 bg-imperial-red text-white text-[10px] sm:text-xs font-bold rounded shadow-lg">
                               {product.category.name}
                             </span>
                           </div>
@@ -588,30 +595,30 @@ function ProductsPageContent() {
 
                         {/* Product Name */}
                         <Link href={`/products/${product.slug}`}>
-                          <h3 className="text-sm font-semibold text-white hover:text-celtic-blue transition-colors line-clamp-1 cursor-pointer">
+                          <h3 className="text-sm sm:text-base font-semibold text-white hover:text-celtic-blue transition-colors line-clamp-1 cursor-pointer">
                             {product.name}
                           </h3>
                         </Link>
 
                         {/* Description */}
-                        <p className="text-xs text-neutral-400 line-clamp-1">
+                        <p className="text-xs sm:text-sm  text-neutral-400 line-clamp-1">
                           {product.description}
                         </p>
 
                         {/* Price */}
                         <div className="flex items-center gap-2 pt-2">
-                          <span className="text-lg font-bold text-white">
+                          <span className="text-base sm:text-lg font-bold text-white">
                             ৳{product.price.toLocaleString()}
                           </span>
                         </div>
 
                         {/* Action Buttons */}
-                        <div className="grid grid-cols-2 gap-2 pt-3">
+                        <div className="grid grid-cols-2 gap-1 sm:gap-2 pt-2 sm:pt-3">
                           <Link
                             href={`/products/edit/${product.id}`}
                             className="w-full"
                           >
-                            <button className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-celtic-blue border border-celtic-blue rounded hover:bg-celtic-blue hover:text-white transition-colors cursor-pointer">
+                            <button className="w-full px-1 sm:px-2 lg:px-3 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs font-semibold text-celtic-blue border border-celtic-blue rounded hover:bg-celtic-blue hover:text-white transition-colors cursor-pointer">
                               Edit
                             </button>
                           </Link>
@@ -619,7 +626,7 @@ function ProductsPageContent() {
                             onClick={() =>
                               setDeleteModal({ isOpen: true, product })
                             }
-                            className="w-full px-2 sm:px-3 py-1.5 sm:py-2 text-xs font-semibold text-imperial-red border border-imperial-red rounded hover:bg-imperial-red hover:text-white transition-colors cursor-pointer"
+                            className="w-full px-1 sm:px-2 lg:px-3 py-1 sm:py-1.5 lg:py-2 text-[10px] sm:text-xs font-semibold text-imperial-red border border-imperial-red rounded hover:bg-imperial-red hover:text-white transition-colors cursor-pointer"
                           >
                             Delete
                           </button>
@@ -633,8 +640,8 @@ function ProductsPageContent() {
 
             {/* Pagination */}
             {products && products.length > 0 && (
-              <div className="mt-8 flex justify-center">
-                <div className="flex items-center gap-2">
+              <div className="mt-4 sm:mt-6 lg:mt-8 flex justify-center px-2">
+                <div className="flex items-center gap-1 sm:gap-2">
                   {renderPagination()}
                 </div>
               </div>

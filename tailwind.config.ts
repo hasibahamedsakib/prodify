@@ -9,6 +9,9 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "475px", // Extra small devices
+      },
       colors: {
         // Custom Color Palette
         "rich-black": "#0D1821",

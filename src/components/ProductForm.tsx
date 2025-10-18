@@ -194,16 +194,16 @@ export default function ProductForm({
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rich-black via-neutral-900 to-neutral-800 py-4 sm:py-8">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+    <div className="min-h-screen bg-gradient-to-br from-rich-black via-neutral-900 to-neutral-800 py-3 sm:py-6 lg:py-8">
+      <div className="container mx-auto px-3 sm:px-4 lg:px-6 xl:px-8 max-w-3xl">
         {/* Header */}
-        <div className="mb-6 sm:mb-8">
+        <div className="mb-4 sm:mb-6 lg:mb-8">
           <button
             onClick={() => router.back()}
-            className="flex items-center text-neutral-400 hover:text-celtic-blue hover:text-accent mb-3 sm:mb-4 transition-colors cursor-pointer"
+            className="flex items-center text-neutral-400 hover:text-celtic-blue hover:text-accent mb-2 sm:mb-3 lg:mb-4 transition-colors cursor-pointer text-sm sm:text-base"
           >
             <svg
-              className="w-4 h-4 sm:w-5 sm:h-5 mr-2"
+              className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 mr-1 sm:mr-2"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -217,10 +217,10 @@ export default function ProductForm({
             </svg>
             Back
           </button>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-2">
+          <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">
             {isEdit ? "Edit Product" : "Create New Product"}
           </h1>
-          <p className="text-sm sm:text-base text-neutral-400">
+          <p className="text-xs sm:text-sm lg:text-base text-neutral-400">
             {isEdit
               ? "Update your product information"
               : "Add a new product to your catalog"}
@@ -228,8 +228,11 @@ export default function ProductForm({
         </div>
 
         {/* Form */}
-        <Card className="p-4 sm:p-6 md:p-8 bg-neutral-900 border border-neutral-800 shadow-xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <Card className="p-3 sm:p-4 md:p-6 lg:p-8 bg-neutral-900 border border-neutral-800 shadow-xl">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-4 sm:space-y-5 lg:space-y-6"
+          >
             {/* Product Name */}
             <Input
               label="Product Name"
