@@ -200,7 +200,7 @@ export default function ProductForm({
         <div className="mb-4 sm:mb-6 lg:mb-8">
           <button
             onClick={() => router.back()}
-            className="flex items-center text-neutral-400 hover:text-celtic-blue hover:text-accent mb-2 sm:mb-3 lg:mb-4 transition-colors cursor-pointer text-sm sm:text-base"
+            className="flex items-center text-neutral-200 hover:text-celtic-blue hover:text-accent mb-2 sm:mb-3 lg:mb-4 transition-colors cursor-pointer text-sm sm:text-base"
           >
             <svg
               className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 mr-1 sm:mr-2"
@@ -220,7 +220,7 @@ export default function ProductForm({
           <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">
             {isEdit ? "Edit Product" : "Create New Product"}
           </h1>
-          <p className="text-xs sm:text-sm lg:text-base text-neutral-400">
+          <p className="text-xs sm:text-sm lg:text-base text-neutral-200">
             {isEdit
               ? "Update your product information"
               : "Add a new product to your catalog"}
@@ -292,7 +292,7 @@ export default function ProductForm({
 
             {/* Images Section */}
             <div className="space-y-4">
-              <label className="block text-sm font-medium text-neutral-300">
+              <label className="block text-sm font-medium text-neutral-50">
                 Product Images <span className="text-imperial-red">*</span>
               </label>
 

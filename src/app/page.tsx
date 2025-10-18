@@ -102,7 +102,7 @@ export default function Home() {
                     </p>
                   )}
                   <div className="mt-2 sm:mt-3 text-accent font-semibold text-xs sm:text-sm opacity-0 group-hover:opacity-100 transition-opacity">
-                    Shop Now →
+                    Shop Now <span className="ml-1">→</span>
                   </div>
                 </div>
               </div>

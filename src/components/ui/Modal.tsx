@@ -41,17 +41,15 @@ const Modal: React.FC<ModalProps> = ({
       onClick={onClose}
     >
       <div
-        className={`bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl w-full ${sizes[size]} transform transition-all animate-slideUp`}
+        className={`bg-neutral-900 rounded-2xl shadow-2xl w-full ${sizes[size]} transform transition-all animate-slideUp`}
         onClick={(e) => e.stopPropagation()}
       >
         {title && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-200 dark:border-neutral-700">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
-              {title}
-            </h3>
+          <div className="flex items-center justify-between px-6 py-4 border-b border-neutral-700">
+            <h3 className="text-xl font-semibold text-white">{title}</h3>
             <button
               onClick={onClose}
-              className="text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors cursor-pointer"
+              className="text-neutral-400 hover:text-neutral-600 transition-colors cursor-pointer"
             >
               <svg
                 className="w-6 h-6"

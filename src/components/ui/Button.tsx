@@ -31,7 +31,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       danger:
         "bg-gradient-to-r from-imperial-red to-chestnut text-white hover:from-[#F03A47] hover:to-[#A44A3F] focus:ring-imperial-red shadow-lg shadow-imperial-red/30 hover:shadow-xl",
       outline:
-        "border-2 border-neutral-300 text-neutral-700 hover:bg-neutral-50 hover:border-celtic-blue focus:ring-celtic-blue dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:border-accent",
+        "border-2 border-neutral-300 focus:ring-celtic-blue dark:border-neutral-600 dark:text-neutral-300 hover:bg-neutral-800 hover:border-accent",
       ghost:
         "text-neutral-700 hover:bg-neutral-100 hover:text-celtic-blue focus:ring-celtic-blue dark:text-neutral-300 dark:hover:bg-neutral-800 dark:hover:text-accent",
     };

@@ -12,7 +12,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1.5">
+          <label className="block text-sm font-medium text-neutral-300 mb-1.5">
             {label}
             {props.required && (
               <span className="text-imperial-red ml-1">*</span>

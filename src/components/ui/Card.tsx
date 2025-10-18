@@ -14,7 +14,7 @@ const Card: React.FC<CardProps> = ({
   return (
     <div
       className={`
-        bg-white dark:bg-neutral-800 rounded-xl shadow-md 
+        bg-neutral-800 rounded-xl shadow-md 
         ${hover ? "hover:shadow-xl hover:-translate-y-1" : ""} 
         transition-all duration-300 
         ${className}
