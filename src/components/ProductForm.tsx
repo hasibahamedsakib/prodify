@@ -354,18 +354,14 @@ export default function ProductForm({
               </div>
 
               {errors.images && (
-                <p className="text-sm text-imperial-red">
-                  {errors.images}
-                </p>
+                <p className="text-sm text-imperial-red">{errors.images}</p>
               )}
             </div>
 
             {/* Submit Error */}
             {errors.submit && (
               <div className="p-4 bg-imperial-red/10 border border-imperial-red/30 rounded-lg">
-                <p className="text-sm text-imperial-red">
-                  {errors.submit}
-                </p>
+                <p className="text-sm text-imperial-red">{errors.submit}</p>
               </div>
             )}
 
