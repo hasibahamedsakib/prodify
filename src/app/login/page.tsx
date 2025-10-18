@@ -129,15 +129,15 @@ export default function LoginPage() {
           </form>
 
           {/* Info */}
-          <div className="pt-4 border-t border-neutral-200 dark:border-neutral-700">
-            <p className="text-xs text-neutral-500 dark:text-neutral-400 text-center">
+          <div className="pt-4 border-t border-neutral-700">
+            <p className="text-xs text-neutral-400 text-center">
               Enter the email you used on your job application to get started
             </p>
           </div>
         </div>
 
         {/* Footer */}
-        <p className="mt-6 sm:mt-8 text-center text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
+        <p className="mt-6 sm:mt-8 text-center text-xs sm:text-sm text-neutral-400">
           Need help? Contact us at{" "}
           <a
             href="mailto:connect@bitechx.com"

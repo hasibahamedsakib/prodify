@@ -103,9 +103,7 @@ export default function ProductDetailPage({
 
     // Fallback if no valid images
     if (images.length === 0) {
-      images.push(
-        "https://via.placeholder.com/600x600/e5e7eb/6b7280?text=No+Image"
-      );
+      images.push("/images/nope-not-here.avif");
     }
 
     return images;
@@ -123,7 +121,7 @@ export default function ProductDetailPage({
             <li>
               <Link
                 href="/products"
-                className="text-neutral-400 hover:text-celtic-blue dark:hover:text-accent transition-colors cursor-pointer"
+                className="text-neutral-400 hover:text-celtic-blue transition-colors cursor-pointer"
               >
                 Products
               </Link>
@@ -163,7 +161,7 @@ export default function ProductDetailPage({
                         className={`relative flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden border-3 transition-all duration-300 cursor-pointer ${
                           selectedImageIndex === index
                             ? "border-celtic-blue ring-4 ring-celtic-blue/30 scale-105"
-                            : "border-neutral-300 dark:border-neutral-700 hover:border-celtic-blue/50"
+                            : "border-neutral-700 hover:border-celtic-blue/50"
                         }`}
                       >
                         <Image
@@ -192,13 +190,13 @@ export default function ProductDetailPage({
                 </span>
               </div>
 
-              <h1 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-black text-neutral-900 dark:text-white mb-4 leading-tight break-words">
+              <h1 className="text-lg sm:text-xl md:text-2xl xl:text-3xl font-black text-white mb-4 leading-tight break-words">
                 {product.name}
               </h1>
 
               {/* Price */}
-              <div className="bg-gradient-to-r from-imperial-red/10 via-imperial-red/5 to-transparent dark:from-imperial-red/20 dark:via-imperial-red/10 rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border-l-4 border-imperial-red">
-                <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-1 font-semibold">
+              <div className="bg-gradient-to-r from-imperial-red/20 via-imperial-red/10 to-transparent rounded-xl p-4 sm:p-6 mb-4 sm:mb-6 border-l-4 border-imperial-red">
+                <p className="text-xs sm:text-sm text-neutral-400 mb-1 font-semibold">
                   Price
                 </p>
                 <p className="text-lg sm:text-xl md:text-2xl 2xl:text-3xl font-black text-imperial-red">
@@ -257,7 +255,7 @@ export default function ProductDetailPage({
 
             {/* Product Description */}
             <div className="bg-neutral-900 rounded-xl sm:rounded-2xl border-2 border-neutral-800 p-4 sm:p-6 shadow-xl">
-              <h2 className="test-base sm:text-lg sm:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
+              <h2 className="test-base sm:text-lg lg:text-xl font-bold text-white mb-3 sm:mb-4 flex items-center">
                 <svg
                   className="w-5 h-5 sm:w-6 sm:h-6 mr-2 text-celtic-blue"
                   fill="none"
@@ -273,7 +271,7 @@ export default function ProductDetailPage({
                 </svg>
                 Description
               </h2>
-              <p className="text-xs sm:text-sm md:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed whitespace-pre-line break-words">
+              <p className="text-xs sm:text-sm md:text-base text-neutral-300 leading-relaxed whitespace-pre-line break-words">
                 {product.description}
               </p>
             </div>
@@ -297,35 +295,35 @@ export default function ProductDetailPage({
                 Details
               </h2>
               <dl className="space-y-2 sm:space-y-3">
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 border-b border-neutral-200 dark:border-neutral-800 gap-1">
-                  <dt className="text-xs sm:text-sm font-semibold text-neutral-600 dark:text-neutral-400">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 border-b border-neutral-800 gap-1">
+                  <dt className="text-xs sm:text-sm font-semibold text-neutral-400">
                     Category Name
                   </dt>
-                  <dd className="text-xs sm:text-sm font-mono text-neutral-900 dark:text-white break-words">
+                  <dd className="text-xs sm:text-sm font-mono text-white break-words">
                     {product?.category?.name}
                   </dd>
                 </div>
-                <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 border-b border-neutral-200 dark:border-neutral-800 gap-1">
-                  <dt className="text-xs sm:text-sm font-semibold text-neutral-600 dark:text-neutral-400">
+                <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 border-b border-neutral-800 gap-1">
+                  <dt className="text-xs sm:text-sm font-semibold text-neutral-400">
                     Created At
                   </dt>
-                  <dd className="text-xs sm:text-sm text-neutral-900 dark:text-white">
-                    {new Date(product.createdAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
+                  <dd className="text-xs sm:text-sm text-white">
+                    {new Date(product.createdAt).toLocaleDateString("en-GB", {
                       day: "numeric",
+                      month: "short",
+                      year: "numeric",
                     })}
                   </dd>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:justify-between py-2 sm:py-3 gap-1">
-                  <dt className="text-xs sm:text-sm font-semibold text-neutral-600 dark:text-neutral-400">
+                  <dt className="text-xs sm:text-sm font-semibold text-neutral-400">
                     Last Updated
                   </dt>
-                  <dd className="text-xs sm:text-sm text-neutral-900 dark:text-white">
-                    {new Date(product.updatedAt).toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "long",
+                  <dd className="text-xs sm:text-sm text-white">
+                    {new Date(product.updatedAt).toLocaleDateString("en-GB", {
                       day: "numeric",
+                      month: "short",
+                      year: "numeric",
                     })}
                   </dd>
                 </div>
@@ -344,15 +342,12 @@ export default function ProductDetailPage({
       >
         <div className="space-y-4 sm:space-y-6">
           <div className="bg-imperial-red/10 border-l-4 border-imperial-red rounded-lg p-3 sm:p-4">
-            <p className="text-sm sm:text-base text-neutral-900 dark:text-white font-semibold mb-2">
-              ⚠️ Warning: This action cannot be undone!
+            <p className="text-sm sm:text-base text-white font-semibold mb-2">
+              ⚠️ Warning: This action cannot be restored!
             </p>
-            <p className="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400">
+            <p className="text-xs sm:text-sm text-neutral-400">
               Are you sure you want to delete{" "}
-              <span className="font-bold text-neutral-900 dark:text-white">
-                {product.name}
-              </span>
-              ?
+              <span className="font-bold text-white">{product.name}</span>?
             </p>
           </div>
           <div className="flex gap-2 sm:gap-3 justify-end">

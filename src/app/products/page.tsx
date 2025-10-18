@@ -660,7 +660,7 @@ function ProductsPageContent() {
         <div className="space-y-6">
           <div className="bg-imperial-red/10 border-l-4 border-imperial-red rounded-lg p-4">
             <p className="text-white font-semibold mb-2">
-              ⚠️ Warning: This action cannot be undone!
+              ⚠️ Warning: This action cannot be restored!
             </p>
             <p className="text-neutral-400 text-sm">
               Are you sure you want to delete{" "}

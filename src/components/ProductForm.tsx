@@ -292,7 +292,7 @@ export default function ProductForm({
 
             {/* Images Section */}
             <div className="space-y-4">
-              <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300">
+              <label className="block text-sm font-medium text-neutral-300">
                 Product Images <span className="text-imperial-red">*</span>
               </label>
 
@@ -307,7 +307,7 @@ export default function ProductForm({
                           src={image}
                           alt={`Product ${index + 1}`}
                           fill
-                          className="object-cover rounded-lg border-2 border-neutral-200 dark:border-neutral-700"
+                          className="object-cover rounded-lg border-2 border-neutral-700"
                           sizes="(max-width: 768px) 50vw, 33vw"
                         />
                         <button
@@ -354,7 +354,7 @@ export default function ProductForm({
               </div>
 
               {errors.images && (
-                <p className="text-sm text-imperial-red dark:text-danger-light">
+                <p className="text-sm text-imperial-red">
                   {errors.images}
                 </p>
               )}
@@ -362,8 +362,8 @@ export default function ProductForm({
 
             {/* Submit Error */}
             {errors.submit && (
-              <div className="p-4 bg-danger/10 dark:bg-danger-dark/20 border border-imperial-red/20 dark:border-danger-dark/30 rounded-lg">
-                <p className="text-sm text-imperial-red dark:text-danger-light">
+              <div className="p-4 bg-imperial-red/10 border border-imperial-red/30 rounded-lg">
+                <p className="text-sm text-imperial-red">
                   {errors.submit}
                 </p>
               </div>

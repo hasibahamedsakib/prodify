@@ -1,24 +1,42 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f6f4f3;
-  --foreground: #0d1821;
+  --background: #0d1821;
+  --foreground: #eff1f3;
   --primary: #276fbf;
   --secondary: #785589;
   --accent: #78e0dc;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0d1821;
-    --foreground: #eff1f3;
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Ensure container doesn't overflow on mobile */
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile responsive fixes */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
 }
 
 /* Custom animations */
@@ -48,4 +66,14 @@ body {
 
 .animate-slideUp {
   animation: slideUp 0.3s ease-out;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+  button, 
+  a,
+  input,
+  select {
+    min-height: 44px;
+  }
 }
