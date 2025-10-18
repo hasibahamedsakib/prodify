@@ -573,7 +573,7 @@ function ProductsPageContent() {
                           {/* NEW Badge */}
                           <div className="absolute top-3 left-3">
                             <span className="px-3 py-1 bg-imperial-red text-white text-xs font-bold rounded shadow-lg">
-                              NEW
+                              {product.category.name}
                             </span>
                           </div>
                         </div>
