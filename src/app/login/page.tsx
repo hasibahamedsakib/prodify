@@ -100,7 +100,9 @@ export default function LoginPage() {
             >
               Welcome to Prodify
             </h1>
-            <p className="text-sm sm:text-base text-neutral-400">Sign in to manage your products</p>
+            <p className="text-sm sm:text-base text-neutral-400">
+              Sign in to manage your products
+            </p>
           </div>
 
           {/* Form */}

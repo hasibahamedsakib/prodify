@@ -101,7 +101,10 @@ const HeaderContent: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           <div className="flex items-center space-x-4 sm:space-x-8">
-            <Link href="/" className="flex items-center space-x-2 group cursor-pointer">
+            <Link
+              href="/"
+              className="flex items-center space-x-2 group cursor-pointer"
+            >
               <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-celtic-blue to-pomp-and-power rounded-lg flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow">
                 <svg
                   className="w-5 h-5 sm:w-6 sm:h-6 text-white"
@@ -155,7 +158,10 @@ const HeaderContent: React.FC = () => {
           <div className="flex items-center space-x-2 sm:space-x-3 flex-1 max-w-md sm:max-w-2xl mx-2 sm:mx-4">
             {/* Search Bar */}
             {showSearch && (
-              <form onSubmit={handleSearch} className="flex-1 max-w-xs sm:max-w-md">
+              <form
+                onSubmit={handleSearch}
+                className="flex-1 max-w-xs sm:max-w-md"
+              >
                 <div className="relative">
                   <svg
                     className="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-neutral-400"
@@ -192,7 +198,12 @@ const HeaderContent: React.FC = () => {
               </span>
             </div>
 
-            <Button variant="outline" size="sm" onClick={handleLogout} className="cursor-pointer">
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={handleLogout}
+              className="cursor-pointer"
+            >
               <svg
                 className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2"
                 fill="none"

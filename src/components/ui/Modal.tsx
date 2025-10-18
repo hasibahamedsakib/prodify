@@ -36,7 +36,10 @@ const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn cursor-pointer" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn cursor-pointer"
+      onClick={onClose}
+    >
       <div
         className={`bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl w-full ${sizes[size]} transform transition-all animate-slideUp`}
         onClick={(e) => e.stopPropagation()}
